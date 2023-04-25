@@ -1,6 +1,6 @@
 <template>
-  <main>这是空的</main>
+  <div>这是空的</div>
 </template>
 
 <script setup lang="ts"></script>
-<style></style>
+<style scoped></style>

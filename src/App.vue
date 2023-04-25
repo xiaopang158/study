@@ -16,7 +16,9 @@
     </div>
   </header>
 
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -34,6 +36,9 @@ const onClick = (index: number) => {
 </script>
 
 <style scoped>
+main {
+  padding: 20px;
+}
 header {
   min-height: 1000px;
   background-color: aqua;
