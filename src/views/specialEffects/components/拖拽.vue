@@ -1,14 +1,15 @@
 <template>
   <div class="box" @mousemove="onMousemove">
+    <h2>自己写的比较失败</h2>
+
     <p>拖拽,</p>
     <p>点击进行拖拽,</p>
-    <p> 再次点击停止拖拽</p>
+    <p>再次点击停止拖拽</p>
 
     <!-- 传送组件 -->
     <Teleport to="body">
       <div class="poa" @mousedown="onMousedown"></div>
     </Teleport>
-
   </div>
 </template>
 <script lang="ts" setup>
@@ -18,7 +19,6 @@ import { ref } from 'vue'
 // mousedown    鼠标按下
 // mouseup      鼠标抬起
 // 鼠标移动 mousemove
-
 
 // clientX	以浏览器窗口左上顶角为原点，定位 x 轴坐标	所有浏览器，不兼容 Safari
 // clientY	以浏览器窗口左上顶角为原点，定位 y 轴坐标	所有浏览器，不兼容 Safari
@@ -57,8 +57,6 @@ const onMousedown = (e: MouseEvent) => {
   }
   console.log(e.offsetX, e.offsetY)
 }
-
-
 
 /**
  * 鼠标移动

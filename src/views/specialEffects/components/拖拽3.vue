@@ -1,9 +1,12 @@
 <template>
   <div class="box">
     <h2>使用的 useElementBounding 函数</h2>
-    <div style="min-height: 300px">
+    <h2>拖拽右下角</h2>
+    <div>
       <textarea ref="el" readonly class="resizer" rows="18" :value="text" />
-      <div class="poa"></div>
+      <div class="poa">
+        <div class="flex">最上面的盒子</div>
+      </div>
     </div>
   </div>
 </template>
@@ -20,21 +23,27 @@ const text = 666
 <style scoped lang="scss">
 .box {
   position: relative;
-  // min-width: 400px;
-  // min-height: 500px;
   background-color: aquamarine;
 }
 textarea {
+  // width: 200px;
   width: 100%;
-  height: 100%;
+  min-width: 440px;
 }
 .poa {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 90%;
+  height: calc(100% - 20px);
   background-color: pink;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
+}
+
+.flex {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

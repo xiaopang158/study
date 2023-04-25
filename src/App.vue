@@ -1,7 +1,6 @@
 <template>
-  <header>
+  <!-- <header>
     <div class="wrapper">
-      <!-- 导航标签 -->
       <nav>
         <RouterLink
           v-for="(item, index) in routerList"
@@ -14,11 +13,11 @@
         </RouterLink>
       </nav>
     </div>
-  </header>
+  </header> -->
+  <RouterView />
+  <!-- <main>
 
-  <main>
-    <RouterView />
-  </main>
+  </main> -->
 </template>
 
 <script setup lang="ts">

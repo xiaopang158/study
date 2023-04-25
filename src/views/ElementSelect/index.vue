@@ -73,7 +73,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, unref } from 'vue'
+const isShow = ref(false)
 const value1 = ref([])
 const value2 = ref([])
 const value3 = ref([])
@@ -100,6 +101,8 @@ const options = [
     label: 'Option5'
   }
 ]
+console.log(unref(isShow))
+
 /**
  *
  */

@@ -5,8 +5,6 @@
       <el-tab-pane label="拖拽" name="拖拽"></el-tab-pane>
       <el-tab-pane label="拖拽2" name="拖拽2"></el-tab-pane>
       <el-tab-pane label="拖拽3" name="拖拽3"></el-tab-pane>
-      <el-tab-pane label="Role" name="Role"></el-tab-pane>
-      <el-tab-pane label="Task" name="Task"></el-tab-pane>
     </el-tabs>
   </div>
   <KeepAlive>
@@ -17,13 +15,14 @@
 <script lang="ts" setup>
 import { ref, reactive, markRaw } from 'vue'
 import type { TabsPaneContext } from 'element-plus'
+import flame from './components/火苗.vue'
 import tuoZhuai from './components/拖拽.vue'
 import tuoZhuai2 from './components/拖拽2.vue'
 import tuoZhuai3 from './components/拖拽3.vue'
 const tap = reactive([
   {
     name: '火苗',
-    comName: markRaw(tuoZhuai)
+    comName: markRaw(flame)
   },
   {
     name: '拖拽',
@@ -42,7 +41,7 @@ const tap = reactive([
     comName: markRaw(tuoZhuai)
   }
 ])
-const activeName = ref('拖拽')
+const activeName = ref('火苗')
 
 const componentIdnex: any = ref('0')
 // 标签被选中

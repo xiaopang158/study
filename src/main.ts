@@ -9,6 +9,8 @@ import router from './router'
 
 import './assets/main.css'
 
+// 引入mock
+import '@/mock'
 const app = createApp(App)
 
 app.use(createPinia())
