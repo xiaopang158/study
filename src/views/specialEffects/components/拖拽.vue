@@ -8,13 +8,13 @@
 
     <!-- 传送组件 -->
     <Teleport to="body">
-      <div class="poa" @mousedown="onMousedown"></div>
+      <div class="poa" @mousedown="onMousedown" v-if="isbox"></div>
     </Teleport>
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
-
+import { ref, onActivated, onDeactivated, onMounted } from 'vue'
+const isbox = ref(false)
 // mouseover / mouseout   一对      支持事件冒泡
 // mousedown    鼠标按下
 // mouseup      鼠标抬起
@@ -73,6 +73,23 @@ const onMousemove = (e: MouseEvent) => {
 
   // console.log(e.pageX, e.pageY)
 }
+
+/**
+ * 组件进入
+ */
+onActivated(() => {
+  isbox.value = true
+})
+
+/**
+ * 组件取消
+ */
+onDeactivated(() => {
+  isbox.value = false
+})
+onMounted(() => {
+  // console.log(1111)
+})
 </script>
 
 <style scoped lang="scss">

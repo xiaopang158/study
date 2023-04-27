@@ -1,30 +1,12 @@
 <template>
-  <!-- <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink
-          v-for="(item, index) in routerList"
-          :key="index"
-          :to="item.path"
-          :class="{ active: index == num }"
-          @click="onClick(index)"
-        >
-          {{ item.name }}
-        </RouterLink>
-      </nav>
-    </div>
-  </header> -->
   <RouterView />
-  <!-- <main>
-
-  </main> -->
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import router from './router/index'
-
+import LayOut from '@/layout/LayOut.vue'
 const routerList = ref({ ...router.options.routes })
 
 const num = ref(0)

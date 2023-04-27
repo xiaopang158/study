@@ -33,6 +33,7 @@ service.interceptors.request.use(
     ) {
       config.data = qs.stringify(config.data)
     }
+
     // ;(config.headers as AxiosRequestHeaders)['Token'] = 'test test'
     // get参数编码
     if (config.method === 'get' && config.params) {

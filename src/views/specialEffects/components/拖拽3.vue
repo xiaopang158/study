@@ -22,21 +22,26 @@ const text = 666
 </script>
 <style scoped lang="scss">
 .box {
+  display: inline-block;
   position: relative;
   background-color: aquamarine;
 }
+
 textarea {
   // width: 200px;
-  width: 100%;
+  // width: 100%;
   min-width: 440px;
+  background-color: #000;
 }
 .poa {
+  display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: calc(100% - 20px);
   background-color: pink;
+  border: 4px solid #000;
   // margin-bottom: 20px;
 }
 

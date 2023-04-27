@@ -25,16 +25,22 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 import { loginApi } from '@/api/login/index.js'
-// import {} from 'vue-router'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const data = reactive({
-  name: '',
-  password: ''
+  name: '小明',
+  password: '123456'
 })
 
 const onLogin = async () => {
   console.log(data)
+  // debugger
   const res = await loginApi(data)
   console.log(res)
+  if (res) {
+    console.log(router)
+    router.push('/layout/home')
+  }
 
   // loginApi(data)
   //   .then((res: any) => {

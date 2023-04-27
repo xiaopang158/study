@@ -10,5 +10,8 @@
     </el-row>
   </div>
 </template>
-
-<style></style>
+<script lang="ts" setup>
+import { ref, reactive } from 'vue'
+import LayOut from '@/layout/LayOut.vue'
+</script>
+<style scoped lang="scss"></style>

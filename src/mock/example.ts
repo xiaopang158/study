@@ -11,8 +11,6 @@ export default {
     body = JSON.parse(body)
     console.log(body)
 
-    // console.log(Response)
-
     // 获取请求数据
     if (body.name === data.name && body.password === data.password) {
       return Mock.mock({
@@ -28,7 +26,7 @@ export default {
       })
     } else {
       return Mock.mock({
-        status: '200',
+        status: '404',
         // code: '0000',
         message: '用户名或密码错误'
       })

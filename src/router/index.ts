@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router
 
 // 1. 定义路由组件.
 import logIn from '../views/login/index.vue'
+import LayOut from '@/layout/LayOut.vue'
 // 2. 定义一些路由
 // 每个路由都需要映射到一个组件。
 // 我们后面再讨论嵌套路由。
@@ -10,27 +11,54 @@ console.log(import.meta.env.VITE_API_BASEPATH)
 const routes = [
   {
     path: '/',
-    name: '首页',
+    name: '登录页',
+    id: '1',
     component: logIn
     // component: () => import('../views/login/index.vue')
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('../views/AboutView.vue')
+    path: '/layout',
+    name: '首页',
+    id: '2',
+    // component: () => import('../views/HomeView.vue'),
+    component: LayOut,
+    children: [
+      {
+        // 当 /user/:id/profile 匹配成功
+        // UserProfile 将被渲染到 User 的 <router-view> 内部
+        path: '/layout/home',
+        name: '页面1',
+        id: '2_1',
+        component: () => import('../views/HomeView.vue')
+        // component: UserProfile
+      },
+      {
+        path: '/layout/about',
+        name: 'about',
+        id: '2-2',
+        component: () => import('../views/AboutView.vue')
+      },
+      {
+        path: '/layout/teXiao',
+        name: '特效',
+        id: '2-3',
+        component: () => import('../views/specialEffects/特效.vue')
+      }
+    ]
   },
   {
-    path: '/teXiao',
-    name: '特效',
-    component: () => import('../views/specialEffects/特效.vue')
-  },
-  {
-    path: '/select',
-    name: 'select选择器',
-    component: () => import('../views/ElementSelect/index.vue')
+    path: '/cs',
+    name: '首页2',
+    id: '3',
+    component: LayOut,
+    children: [
+      {
+        path: '/cs/select',
+        name: 'select选择器',
+        id: '5',
+        component: () => import('../views/ElementSelect/index.vue')
+      }
+    ]
   }
 ]
 console.log(import.meta.env)

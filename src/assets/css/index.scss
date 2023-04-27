@@ -1,0 +1,30 @@
+// section {
+//   flex-direction: column;
+// }
+@import './main.css';
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+.common-layout {
+  width: 100vw;
+  display: flex;
+}
+.min {
+  flex-direction: column;
+}
+
+.el-menu-item.is-active {
+  background-color: #4e5763;
+  a {
+    color: #fff;
+    font-weight: 700;
+  }
+  .el-icon {
+    color: #fff;
+  }
+}
+.flex {
+  display: flex;
+}
