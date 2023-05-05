@@ -6,22 +6,22 @@ import LayOut from '@/layout/LayOut.vue'
 // 2. 定义一些路由
 // 每个路由都需要映射到一个组件。
 // 我们后面再讨论嵌套路由。
-console.log(import.meta.env.VITE_API_BASEPATH)
+// console.log(import.meta.env.VITE_API_BASEPATH)
 
 const routes = [
   {
     path: '/',
     name: '登录页',
     id: '1',
-    component: logIn
-    // component: () => import('../views/login/index.vue')
+    // component: logIn
+    component: () => import('../views/login/index.vue')
   },
   {
     path: '/layout',
     name: '首页',
     id: '2',
-    // component: () => import('../views/HomeView.vue'),
-    component: LayOut,
+    component: () => import('@/layout/LayOut.vue'),
+    // component: LayOut,
     children: [
       {
         // 当 /user/:id/profile 匹配成功
@@ -47,9 +47,23 @@ const routes = [
     ]
   },
   {
-    path: '/cs',
+    path: '/vuedemo',
     name: '首页2',
     id: '3',
+    component: LayOut,
+    children: [
+      {
+        path: '/vuedemo/index',
+        name: 'vuedemo',
+        id: '3-1',
+        component: () => import('../views/vueDemo/index.vue')
+      }
+    ]
+  },
+  {
+    path: '/cs',
+    name: '首页3',
+    id: '4',
     component: LayOut,
     children: [
       {

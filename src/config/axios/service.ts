@@ -13,7 +13,6 @@ import { config } from './config'
 import { ElMessage } from 'element-plus'
 
 const { result_code, base_url }: any = config
-console.log(base_url)
 
 export const PATH_URL = base_url[import.meta.env.VITE_API_BASEPATH]
 

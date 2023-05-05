@@ -28,3 +28,20 @@ ul {
 .flex {
   display: flex;
 }
+
+// ul.el-menu {
+//   height: 500px;
+// }
+.el-menu {
+  height: 100%;
+}
+
+.p_aside.el-aside {
+  /* width: auto; */
+  --el-aside-width: auto;
+  // width: auto !important;
+}
+
+.el-main {
+  background-color: #f5f7f9;
+}

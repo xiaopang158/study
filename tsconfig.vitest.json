@@ -3,6 +3,7 @@
   "exclude": [],
   "compilerOptions": {
     "composite": true,
+    "verbatimModuleSyntax": true,
     "lib": [],
     "types": ["node", "jsdom"]
   }

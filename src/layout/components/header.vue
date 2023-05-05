@@ -2,20 +2,27 @@
   <el-header class="header">
     <div class="flex">
       <div>
-        <el-radio-group v-model="isCollapse">
-          <el-radio-button :label="false">expand</el-radio-button>
-          <el-radio-button :label="true">collapse</el-radio-button>
-        </el-radio-group>
+        <div class="icon">
+          <el-icon v-show="!isCollapse" @click="changeEmit"><Fold /></el-icon>
+          <el-icon v-show="isCollapse" @click="changeEmit"><Expand /></el-icon>
+        </div>
+
+        <el-breadcrumb :separator-icon="ArrowRight" v-if="getRouterOptions.length > 0">
+          <el-breadcrumb-item :to="{ path: item.path }" v-for="item in getRouterOptions">
+            {{ item.name }}
+          </el-breadcrumb-item>
+          <!-- <el-breadcrumb-item>promotion</el-breadcrumb-item> -->
+        </el-breadcrumb>
       </div>
+
       <div class="photo_box">
         <div class="photo"></div>
         <div>
-          {{ '学圆' }}
-          <!-- {{ '学圆是傻狗' }} -->
+          {{ data.userName }}
         </div>
         <div class="poa">
           <div class="outIn_top"></div>
-          <ul>
+          <ul @click="onClick">
             <li>退出登录</li>
           </ul>
         </div>
@@ -24,9 +31,38 @@
   </el-header>
 </template>
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, getCurrentInstance, unref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
+import { ArrowRight } from '@element-plus/icons-vue'
+import { userInfo } from '@/stores/userInfo'
+const piniaUserInfo = userInfo()
+const router = useRouter()
+const instance = getCurrentInstance()
 const isCollapse = ref(false)
-const isShow = ref(false)
+const { getRouterOptions } = storeToRefs(piniaUserInfo)
+// console.log(getRouterOptions)
+
+const data = reactive({
+  userName: '学员'
+})
+
+/**
+ * mitt 传参
+ */
+const changeEmit = () => {
+  isCollapse.value = !isCollapse.value
+  instance?.proxy?.$Bus.emit('on-xin', unref(isCollapse))
+}
+
+/**
+ * 点击事件
+ */
+const onClick = (e: any) => {
+  if (e.target.innerText) {
+    router.push('/')
+  }
+}
 </script>
 <style scoped lang="scss">
 .header {
@@ -41,7 +77,7 @@ const isShow = ref(false)
     align-items: center;
     padding: 0 10px;
     transition: all 0.5s;
-    &:hover {
+    &:last-child:hover {
       background-color: antiquewhite;
       cursor: pointer;
       .poa {
@@ -95,5 +131,14 @@ const isShow = ref(false)
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #999;
+}
+.el-breadcrumb {
+  margin-left: 20px;
+}
+
+.icon {
+  margin-top: 4px;
+  font-style: 20px;
+  cursor: pointer;
 }
 </style>
